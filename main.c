@@ -1,36 +1,59 @@
 #include "push_swap.h"
 
+t_stack	*create(int size)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->size = size;
+	stack->top = - 1;
+	stack->stack = malloc(size * sizeof(int));
+	return (stack);
+}
+
+void	init_stack(t_stack *stack, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = stack->size - 1;
+	while (j >= 0)
+	{
+		stack->stack[i] = ft_atoi(argv[i+1]);
+		stack->top++;
+		i++;
+		j--;
+	}
+}
+
 int main (int argc, char **argv)
 {
-	int i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-
-	if(argc < 2)
-	{
-		ft_printf("erro");
-		return(1);
-	}	
-	stack_a = malloc(sizeof(t_stack));
-	stack_b = malloc(sizeof(t_stack));
-	stack_a->stack = malloc((argc) * sizeof(int));
-	stack_a->size = argc - 1;
-	stack_b->size = 0;
-	i = 1;
-	while (i <= stack_a->size)
-	{
-		stack_a->stack[i] = ft_fill(argv[i]);
-		i++;
-	}
-	stack_b->stack = malloc((argc) * sizeof(int));
-	stack_b->size = 0;
-	i = 1 ;
-	while(i <= stack_a->size)
+	int	i;
+	
+	i= 0;
+	(void)stack_b;
+	if (argc < 2)
+		return (0);
+	stack_a = create(argc - 1);
+	stack_b = create(argc - 1);
+	init_stack(stack_a, argv);
+	do_pb(stack_a, stack_b);
+	while(i < stack_a->size)
 	{	
-		ft_swap(stack_a);
-		ft_printf("%i \n", stack_a->stack[i]);
+		ft_printf("%d \n", stack_a->stack[i]);
 		i++;
 	}
-	return (0);
+	ft_printf("stack b \n");
+	i=0;
+	while(i < stack_b->size)
+	{	
+		ft_printf("%d \n", stack_b->stack[i]);
+		i++;
+	}
 }
 

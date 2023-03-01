@@ -74,6 +74,7 @@ void			ft_putnbr_fd(int n, int fd);
 
 
 
+
 /* Funcoes Bonus */
 t_list *ft_lstnew(void *content);
 void ft_lstadd_front(t_list **lst, t_list *new);
@@ -115,6 +116,7 @@ int		ft_prt_hexadecimal(unsigned int num, const char format);
 void	ft_putchar_fd(char c, int fd);
 size_t	ft_strlen(const char *s);
 char    *ft_itoa(int n);
+
 
 #endif
 

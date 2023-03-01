@@ -8,7 +8,10 @@ LIBFT = ./libft/libft.a
 
 SRCS =	main.c \
 	utils.c \
-	swap.c	
+	swap.c \
+	rotate.c \
+	rev_rotate.c\
+	push.c
       
 
 OBJS = $(SRCS:.c=.o)
