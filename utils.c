@@ -25,6 +25,19 @@ long	ft_atol(const char *str)
 	return (res * signal);
 }
 
+int ft_is_order(t_stack *stack)
+{
+	int i;
+	i = 0;
+	
+	while(i < (stack->size - 1) )
+	{
+		if(stack->stack[i] > stack->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return(1);
+}
 
 int	ft_fill( char *n)
 {

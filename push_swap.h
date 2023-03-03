@@ -45,6 +45,8 @@ void	do_rrr(t_stack *stack_a, t_stack *stack_b);
 int	ft_fill( char *n);
 long	ft_atol(const char *str);
 void	ft_swap(t_stack *stack);
+int	ft_is_order(t_stack *stack);
+void 	sort(t_stack *stack_a);
 
 //void ft_init(t_stack *stack_a, t_stack *stack_b, int argc , char **argv);
 

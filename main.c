@@ -42,18 +42,21 @@ int main (int argc, char **argv)
 	stack_a = create(argc - 1);
 	stack_b = create(argc - 1);
 	init_stack(stack_a, argv);
-	do_pb(stack_a, stack_b);
 	while(i < stack_a->size)
 	{	
 		ft_printf("%d \n", stack_a->stack[i]);
 		i++;
 	}
-	ft_printf("stack b \n");
-	i=0;
-	while(i < stack_b->size)
+	sort(stack_a);
+	ft_printf("Ordenada \n");
+	i = 0;
+	while(i < stack_a->size)
 	{	
-		ft_printf("%d \n", stack_b->stack[i]);
+		ft_printf("%d \n", stack_a->stack[i]);
 		i++;
 	}
+	free(stack_a->stack);
+	free(stack_b->stack);
+	free(stack_b);
 }
 
