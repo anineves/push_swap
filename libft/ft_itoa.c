@@ -1,55 +1,45 @@
 #include "libft.h"
-
-static int    ft_cont(int nb)
+static int	ft_digits(int n)
 {
-        int    cont;
-        
-        cont = 0;
-        
-        if (nb <= 0)
-        {
-               cont++;
-        }
-        while (nb != 0)
-        {
-                cont ++;
-                nb = nb / 10;
-        }
-        return(cont);
+	int	digits;
+
+	digits = 0;
+	if (n <= 0)
+		digits++;
+	while (n != 0)
+	{
+		n = n / 10;
+		digits++;
+	}
+	return (digits);
 }
 
-char    *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-        char    *str;
-        int    cont;
-        int     sinal;
+	size_t	digits;
+	int		signal;
+	char	*result;
 
-        cont = ft_cont(n);
-        sinal = 1;     
-        str = malloc(sizeof(char) * (cont + 1));
-        if (str == NULL)
-                return (NULL);
-        
-        str[cont] = '\0';
-        cont--;
-        if(n < 0)
-        {
-                str[0] = '-';
-                sinal = -1;
-        }
-        else if (n == 0)
-        {
-                str[0] = '0';
-        }
-        
-        while (n != 0)
-        {
-                str[cont] = 48 + (n % 10 * sinal);
-                n /=  10;
-                cont--;
-        }
-        return (str);
-
+	digits = ft_digits(n);
+	signal = 1;
+	result = malloc((digits + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	result[digits] = '\0';
+	if (n < 0)
+	{
+		signal = -1;
+		result[0] = '-';
+	}
+	else if (n == 0)
+		result[0] = '0';
+	while (n != 0)
+	{
+		digits--;
+		result[digits] = (n % 10 * signal) + '0';
+		n = n / 10;
+	}
+	return (result);
 }
 /*
 int     main(void)

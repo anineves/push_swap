@@ -5,8 +5,8 @@ void	rev_rotate(t_stack *stack)
 	int	tmp;
 	int	tmp2;
 
-	tmp = stack->stack[stack->top];
-	tmp2 = stack->top;
+	tmp = stack->stack[stack->size - 1];
+	tmp2 = stack->size - 1;
 	while (tmp2 > 0)
 	{
 		stack->stack[tmp2] = stack->stack[tmp2 - 1];

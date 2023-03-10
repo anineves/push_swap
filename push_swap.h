@@ -22,33 +22,29 @@
 typedef struct s_stack
 {
 	int		size;
-	int		top;
+	int		*copy;
 	int		*stack;
-	char	c;
 }	t_stack;
 
-void	swap(t_stack *stack);
+int	ft_verific(char **argv);
 void	do_sa(t_stack *stack_a);
 void	do_sb(t_stack *stack_b);
 void	do_ss(t_stack *stack_a, t_stack *stack_b);
-void	push(t_stack *stack_src, t_stack *stack_dst);
 void	do_pa(t_stack *stack_b, t_stack *stack_a);
 void	do_pb(t_stack *stack_a, t_stack *stack_b);
-void	rotate(t_stack *stack);
 void	do_ra(t_stack *stack_a);
 void	do_rb(t_stack *stack_b);
 void	do_rr(t_stack *stack_a, t_stack *stack_b);
-void	rev_rotate(t_stack *stack);
 void	do_rra(t_stack *stack_a);
 void	do_rrb(t_stack *stack_b);
 void	do_rrr(t_stack *stack_a, t_stack *stack_b);
-int	ft_fill( char *n);
-long	ft_atol(const char *str);
-void	ft_swap(t_stack *stack);
+int	ft_handler_error(char *msg, t_stack *stack);
 int	ft_is_order(t_stack *stack);
-void 	sort(t_stack *stack_a);
+void 	sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_sort_three(t_stack *stack);
+void 	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
+int	find_smaller(t_stack *stack);
 
-//void ft_init(t_stack *stack_a, t_stack *stack_b, int argc , char **argv);
 
 
 

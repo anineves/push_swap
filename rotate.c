@@ -7,7 +7,7 @@ void	rotate(t_stack *stack)
 
 	i = 0;
 	tmp = stack->stack[i];
-	while (i < stack->top)
+	while (i < stack->size -1 )
 	{
 		stack->stack[i] = stack->stack[i + 1];
 		i++;
