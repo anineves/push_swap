@@ -1,28 +1,27 @@
 #include "push_swap.h"
 
-
-
 void	ft_sort_three(t_stack *stack)
+
 {	
 	if (ft_is_order(stack) != 1)
 	{
-	if (stack->stack[0] < stack->stack[1] && stack->stack[0] < stack->stack[2]
+		if (stack->stack[0] < stack->stack[1] && stack->stack[0] < stack->stack[2]
 		&& stack->stack[1] > stack->stack[2])
-	{
-		do_sa(stack);
-		do_ra(stack);
-	}
-	else if (stack->stack[0] > stack->stack[1] && stack->stack[0] < stack->stack[2]
-		&& stack->stack[1] < stack->stack[2])
-		do_sa(stack);
-	else if (stack->stack[0] < stack->stack[1] && stack->stack[0] > stack->stack[2]
-		&& stack->stack[1] > stack->stack[2])
-		do_rra(stack);
-	else if (stack->stack[0] > stack->stack[1] && stack->stack[0] > stack->stack[2]
-		&& stack->stack[1] > stack->stack[2])
-	{	
-		do_sa(stack);
-		do_rra(stack);
+		{
+			do_sa(stack);
+			do_ra(stack);
+		}
+		else if (stack->stack[0] > stack->stack[1] && stack->stack[0] < stack->stack[2]
+			&& stack->stack[1] < stack->stack[2])
+			do_sa(stack);
+		else if (stack->stack[0] < stack->stack[1] && stack->stack[0] > stack->stack[2]
+			&& stack->stack[1] > stack->stack[2])
+			do_rra(stack);
+		else if (stack->stack[0] > stack->stack[1] && stack->stack[0] > stack->stack[2]
+			&& stack->stack[1] > stack->stack[2])
+		{	
+			do_sa(stack);
+			do_rra(stack);
 	}
 	else if (stack->stack[0] > stack->stack[1] && stack->stack[0] > stack->stack[2]
 		&& stack->stack[1] < stack->stack[2])
@@ -40,7 +39,7 @@ void ft_sort_five(t_stack *stack_a, t_stack *stack_b)
 	t = stack_a->size;
 	while (stack_a->size > 3)
 	{
-		small = find_smaller(stack_a);
+		small = ft_find_smaller(stack_a);
 		if (stack_a->stack[1] == small)
 			do_sa(stack_a);
 		else if (stack_a->stack[2] == small)
@@ -67,7 +66,6 @@ void ft_sort_five(t_stack *stack_a, t_stack *stack_b)
 	
 }
 
-
 void 	sort(t_stack *stack_a, t_stack *stack_b)
 {
 
@@ -77,10 +75,10 @@ void 	sort(t_stack *stack_a, t_stack *stack_b)
 	   		do_sa(stack_a);
 	}
 	else if (stack_a->size == 3)
-	{
 		ft_sort_three(stack_a);
-	}else if(stack_a->size <= 5)
-	{
+	else if(stack_a->size <= 5)
 		ft_sort_five(stack_a, stack_b);
-	}
+	else
+		ft_sort_100(stack_a, stack_b);	
 }
+	

@@ -13,8 +13,8 @@ SRCS =	main.c \
 	rev_rotate.c\
 	push.c\
 	sort.c\
-	verific.c
-      
+	verific.c\
+	sortd.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -43,10 +43,9 @@ int	ft_is_order(t_stack *stack);
 void 	sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort_three(t_stack *stack);
 void 	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
-int	find_smaller(t_stack *stack);
-
-
-
+int	ft_find_smaller(t_stack *stack);
+int	ft_find_higher(t_stack *stack);
+void	ft_sort_100(t_stack *a, t_stack *b);
 
 #endif
 

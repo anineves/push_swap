@@ -56,7 +56,7 @@ int	main(int argc, char *argv[])
 	stack_a = create(argc - 1);
 	stack_b = createb(stack_a);
 	init_stack(stack_a, argv);
-	/*int	i;
+	int	i;
 	i =0;
 	while(i < stack_a->size)
 	{
@@ -77,8 +77,8 @@ int	main(int argc, char *argv[])
 	{
 	ft_printf("%d \n", stack_a->stack[i]);
 	i++;
-	}*/
-	sort(stack_a, stack_b);
+	}
+	//sort(stack_a, stack_b);
 	free(stack_a->stack);
 	free(stack_a->copy);
 	free(stack_a);
