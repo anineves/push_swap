@@ -16,46 +16,38 @@ int	ft_get_position(t_stack *stack_a, int value)
 
 void 	ft_sort_100(t_stack *stack_a, t_stack *stack_b)
 {
-	int i;
-	int j;
-	int midle;
-	int smaller;
-	int higher;
-	int moves;
-	midle = stack_a->size / 2;
-	moves = 0;
+	//int higher;
+	//int pos_higher;
+	//int = 0;
+	int midle = stack_a->size;
+
+	do_pb(stack_a, stack_b);
+	do_pb(stack_a, stack_b);
 	
-	while( stack_a->size > 0)
+	if(ft_is_order(stack_b) == 1)
+	   	do_sb(stack_b);
+	ft_printf("valor a %d, valor b %d, /n", stack_a->stack[0], stack_b->stack[0]  );	
+	while(midle > 5)
 	{
 	
-		smaller = ft_find_smaller(stack_a);
-		i = ft_get_position(stack_a, smaller);
-		if(i <= midle)
+		if(stack_a->stack[0] < stack_b->stack[0])
 		{
-			while(i > 0)
-			{
-			  do_ra(stack_a);
-			  moves++;
-			  i--;
-			}
-		}else{
-			while(i < stack_a->size)
-			{
-			  do_rra(stack_a);
-			  moves++;
-			  i++;
-			}
+			//ft_printf("laco \n");
+			do_ra(stack_a);
+			//ft_printf(" escrito ra \n");
+			midle--;
+			//ft_printf("midle %d \n", midle);
 		}
-		do_pb(stack_a, stack_b);
-		moves++;
+		else
+		{
+			do_pb(stack_a, stack_b);
+			midle--;
+			
+		}
 	}
-	while( stack_b->size > 0)
-	{
-		do_pa(stack_b, stack_a);
-		moves++;
-	}
+	if (stack_a->size <= 5)
+    	{
+    	    ft_sort_five(stack_a, stack_b);
+    	}	
 	
-	ft_printf("numero de moves %d \n ", moves);
 }
-
-
