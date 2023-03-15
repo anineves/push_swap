@@ -67,9 +67,17 @@ int	main(int argc, char *argv[])
 	ft_printf("%d \n", stack_a->stack[i]);
 	i++;
 	}
+	ft_printf("b \n");
+	while(i < stack_b->size)
+	{
+	ft_printf("%d \n", stack_b->stack[i]);
+	i++;
+	}
 	free(stack_a->stack);
+	free(stack_a->copy);
 	free(stack_a);
 	free(stack_b->stack);
+	free(stack_b->copy);
 	free(stack_b);
 	return (0);
 }

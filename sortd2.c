@@ -14,32 +14,33 @@ int	ft_get_position(t_stack *stack_a, int value)
 	return (i);
 }
 
-void quicksort(int arr[], int left, int right) {
-    int i = left, j = right;
+void quicksort(int stack[], int inicio, int fim) 
+{  
+    int pos_i;
+    int pos_f;
     int temp;
-    int pivot = arr[(left + right) / 2];
-
-    /* Partition */
-    ft_printf("entrei \n");
-    while (i <= j) {
-        while (arr[i] < pivot)
-            i++;
-        while (arr[j] > pivot)
-            j--;
-        if (i <= j) {
-	ft_printf("entrei");
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            i++;
-            j--;
+    int pivot ;
+    
+    pivot = stack[(inicio + fim) / 2];
+    pos_i = inicio;
+    pos_f = fim;  
+    while (pos_i <= pos_f) {
+        while (stack[pos_i] < pivot)
+            pos_i++;
+        while (stack[pos_f] > pivot)
+            pos_f--;
+        if (pos_i <= pos_f) {
+            temp = stack[pos_i];
+            stack[pos_i] = stack[pos_f];
+            stack[pos_f] = temp;
+            pos_i++;
+            pos_f--;
         }
     }
-
-    if (left < j)
-        quicksort(arr, left, j);
-    if (i < right)
-        quicksort(arr, i, right);
+    if (inicio < pos_f)
+        quicksort(stack, inicio, pos_f);
+    if (pos_i < fim)
+        quicksort(stack, pos_i, fim);
 }
 
 void 	ft_sort_100(t_stack *stack_a, t_stack *stack_b)
@@ -72,7 +73,7 @@ void 	ft_sort_100(t_stack *stack_a, t_stack *stack_b)
 		do_pb(stack_a, stack_b);
 		midle2--;
 	}
-	quicksort(stack_a->stack, 0, stack_a->size -1 );
+	quicksort(stack_a->stack, 0, stack_a->size - 1);
 	while(stack_b->size > 0)
 		do_pa(stack_b, stack_a);
 }
