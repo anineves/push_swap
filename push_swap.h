@@ -27,6 +27,9 @@ typedef struct s_stack
 }	t_stack;
 
 int	ft_verific(char **argv);
+t_stack	*createb(t_stack *stack_a);
+t_stack	*create(int capacity);
+void	init_stack(t_stack *stack, char **argv);
 void	do_sa(t_stack *stack_a);
 void	do_sb(t_stack *stack_b);
 void	do_ss(t_stack *stack_a, t_stack *stack_b);

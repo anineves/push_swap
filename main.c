@@ -57,8 +57,8 @@ int	main(int argc, char *argv[])
 	stack_a = create(argc - 1);
 	stack_b = createb(stack_a);
 	init_stack(stack_a, argv);
-	//sort(stack_a, stack_b);
-	int	i;
+	sort(stack_a, stack_b);
+	/*int	i;
 	i =0;
 	sort(stack_a, stack_b);
 	ft_printf("ordenada \n");
@@ -67,12 +67,13 @@ int	main(int argc, char *argv[])
 	ft_printf("%d \n", stack_a->stack[i]);
 	i++;
 	}
+	i = 0;
 	ft_printf("b \n");
 	while(i < stack_b->size)
 	{
 	ft_printf("%d \n", stack_b->stack[i]);
 	i++;
-	}
+	}*/
 	free(stack_a->stack);
 	free(stack_a->copy);
 	free(stack_a);

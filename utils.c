@@ -49,7 +49,7 @@ int	ft_find_higher(t_stack *stack)
 	i = 0;
 	while (i <= stack->size - 1)
 	{
-		if (stack->stack[i] < higher)
+		if (stack->stack[i] > higher)
 			higher = stack->stack[i];
 		i++;
 	}
