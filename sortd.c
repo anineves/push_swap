@@ -1,70 +1,40 @@
 #include "push_swap.h"
 
-int	ft_get_position(t_stack *stack_a, int value)
-{
-	int	i;
+void quicksort(int stack[], int tam) 
+{  
+    	int	i;
+	int	tmp;
 
 	i = 0;
-	while (i <= stack_a->size)
+	while (i < tam)
 	{
-		if (stack_a->stack[i] == value)
-			return (i);
+		if (stack[i] > stack[i + 1])
+		{
+			tmp = stack[i];
+			stack[i] = stack[i + 1];
+			stack[i + 1] = tmp;
+			i = -1;
+		}
 		i++;
 	}
-	return (i);
-}
-void quicksort(int stack[], int inicio, int fim) 
-{  
-    int pos_i;
-    int pos_f;
-    int temp;
-    int pivot ;
-    
-    pivot = stack[(inicio + fim) / 2];
-    pos_i = inicio;
-    pos_f = fim;  
-    while (pos_i <= pos_f) {
-        while (stack[pos_i] < pivot)
-            pos_i++;
-        while (stack[pos_f] > pivot)
-            pos_f--;
-        if (pos_i <= pos_f) {
-            temp = stack[pos_i];
-            stack[pos_i] = stack[pos_f];
-            stack[pos_f] = temp;
-            pos_i++;
-            pos_f--;
-        }
-    }
-    if (inicio < pos_f)
-        quicksort(stack, inicio, pos_f);
-    if (pos_i < fim)
-        quicksort(stack, pos_i, fim);
 }
 
 int ft_mediana(t_stack *stack_a)
 {
-	int stack_c[stack_a->size];
-	int i;
+	int size;
 	int mediana;
 	
+	size = stack_a->size;
 	
+	quicksort(stack_a->copy , stack_a->size-1);
 	
-	while (i < stack_a->size)
-        	{
-                		stack_c[i] = stack_a->stack[i];
-                		i++;
-        	}
-
-	quicksort(stack_c , 0 , i);
-	
-	 if(i % 2)
+	 if(size % 2)
 	 {
-	 	mediana= stack_c[i / 2];
+	 	mediana= stack_a->copy[size/ 2];
 	 }
 	 else
 	 {
-	 	mediana = (stack_c[i/ 2 - 1] + stack_c[i / 2]) / 2;
+	 	mediana = (stack_a->copy[size/ 2 - 1] + stack_a->copy[size / 2]) / 2;
 	 }
 	 return(mediana);
 		
@@ -85,8 +55,7 @@ void ft_mediana_spliter(t_stack *stack_a, t_stack *stack_b)
 	mediana = ft_mediana(stack_a);
 	
 	while(i <= size )
-	{
-	ft_printf("valor mediana %d, valor stack_a->stack[0] %d \n", mediana , stack_a->stack[0]);	
+	{	
 	  if(stack_a->stack[0] <= mediana )
 	  {
 		do_pb(stack_a, stack_b);

@@ -66,19 +66,20 @@ void ft_sort_five(t_stack *stack_a, t_stack *stack_b)
 	
 }
 
-void 	sort(t_stack *stack_a, t_stack *stack_b)
+void	sort(t_stack *stack_a, t_stack *stack_b)
 {
 
 	if (stack_a->size == 2)
-	{
-		if(ft_is_order(stack_a) == 0)
-	   		do_sa(stack_a);
-	}
+	   	do_sa(stack_a);
 	else if (stack_a->size == 3)
 		ft_sort_three(stack_a);
 	else if(stack_a->size <= 5)
 		ft_sort_five(stack_a, stack_b);
+	else if (stack_a->size <= 100)
+		ft_sort_100(stack_a, stack_b);
 	else
-		ft_sort_100(stack_a, stack_b);	
+		ft_sort_500(stack_a, stack_b);
+		
+
 }
 	

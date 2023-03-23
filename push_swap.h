@@ -22,6 +22,7 @@
 typedef struct s_stack
 {
 	int		size;
+	int		blocks;
 	int		*copy;
 	int		*stack;
 }	t_stack;
@@ -30,6 +31,7 @@ int	ft_verific(char **argv);
 t_stack	*createb(t_stack *stack_a);
 t_stack	*create(int capacity);
 void	init_stack(t_stack *stack, char **argv);
+long int	ft_atol(const char *str);
 void	do_sa(t_stack *stack_a);
 void	do_sb(t_stack *stack_b);
 void	do_ss(t_stack *stack_a, t_stack *stack_b);
@@ -41,15 +43,17 @@ void	do_rr(t_stack *stack_a, t_stack *stack_b);
 void	do_rra(t_stack *stack_a);
 void	do_rrb(t_stack *stack_b);
 void	do_rrr(t_stack *stack_a, t_stack *stack_b);
-int	ft_handler_error(char *msg, t_stack *stack);
 int	ft_is_order(t_stack *stack);
-void 	sort(t_stack *stack_a, t_stack *stack_b);
+void	sort(t_stack *stack_a, t_stack *stack_b);
+int	ft_get_position(t_stack *stack_a, int value);
 void	ft_sort_three(t_stack *stack);
 void 	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
 int	ft_find_smaller(t_stack *stack);
 int	ft_find_higher(t_stack *stack);
+void 	quicksort(int stack[], int tam);
+void	ft_sort_b(t_stack *stack_a, t_stack *stack_b); 
 void 	ft_sort_100(t_stack *stack_a, t_stack *stack_b);
-
+void	ft_sort_500(t_stack *stack_a, t_stack *stack_b);
 #endif
 
 

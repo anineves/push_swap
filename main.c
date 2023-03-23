@@ -7,9 +7,10 @@ t_stack	*create(int capacity)
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
+	stack->blocks = 0;
 	stack->size = capacity;
-	stack->copy = malloc(capacity * sizeof(int));
 	stack->stack = malloc(capacity * sizeof(int));
+	stack->copy = malloc(capacity * sizeof(int));
 	
 	return (stack);
 }
@@ -21,9 +22,10 @@ t_stack	*createb(t_stack *stack_a)
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
+	stack->blocks = 0;
 	stack->size = 0;
-	stack->copy = ft_calloc(stack_a->size , sizeof(int));
 	stack->stack = ft_calloc(stack_a->size , sizeof(int));
+	stack->copy = ft_calloc(stack_a->size , sizeof(int));
 	return (stack);
 }
 
@@ -35,7 +37,7 @@ void	init_stack(t_stack *stack, char **argv)
 	i = 0;
 	j = stack->size - 1;
 	while (j >= 0)
-	{
+	{	stack->copy[i] = ft_atoi(argv[i+1]);
 		stack->stack[i] = ft_atoi(argv[i+1]);
 		i++;
 		j--;
