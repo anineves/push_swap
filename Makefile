@@ -15,7 +15,7 @@ SRCS =	main.c \
 	sort.c\
 	verific.c\
 	sort_100.c\
-	sort_500.c
+	sort_20.c
 
 OBJS = $(SRCS:.c=.o)
 
